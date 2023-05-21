@@ -1,0 +1,18 @@
+version: "0.1"
+services:
+  server:
+    container_name: php-server
+    build: ./
+    ports:
+      - 4000:80
+    volumes:
+      - ./src/:/var/www/html/
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    volumes:
+      - ./datadir:/var/lib/mysql  
+    env_file:
+      - .env
