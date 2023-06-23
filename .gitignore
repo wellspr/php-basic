@@ -1,0 +1,4 @@
+datadir
+node_modules
+vendor/smarty
+.env

@@ -1,0 +1,21 @@
+version: '0.0.1'
+services:
+  php:
+    container_name: php-router
+    build: ./
+    ports:
+      - 4000:80
+    volumes:
+      - ./src/:/var/www/html/
+      - ./vendor/php-router/:/var/www/vendor/php-router/
+    env_file:
+      - .env
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    volumes:
+      - ./datadir:/var/lib/mysql
+    env_file:
+      - .env
